@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Learn Java Web!</title>
+<title>Atividade Servlet</title>
 </head>
 <body>
-	Contato ${param.nome} adiconado com sucesso!
+	<h1>Contato Salvo</h1>
+	${param.nome} ${param.email} adiconado com sucesso!
+	<p><a href="learn?logica=ListaContatos">Lista Contatos</a></p>
+	<p><a href="index.html">Adiciona outro contato</a></p>
 </body>
 </html>

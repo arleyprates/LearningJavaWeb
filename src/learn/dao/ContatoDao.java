@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-import javax.management.RuntimeErrorException;
-
 import learn.model.Contato;
 
 public class ContatoDao {
@@ -33,6 +31,7 @@ public class ContatoDao {
 			
 			stmt.close();
 			
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Exception DAO adiciona...");
@@ -44,7 +43,7 @@ public class ContatoDao {
 		
 		try {
 			List<Contato> contatos = new ArrayList<Contato>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM contato");
 			ResultSet rs = stmt.executeQuery();
 			
 			while (rs.next()){

@@ -2,13 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Learning Java Web</title>
+<title>Atividade Servlet</title>
 </head>
 <body>
-<h1>Learning Java Web!</h1>
-	<form action="adicionaContato" metodo="POST">
-		Nome: <input type="text" name="nome">
+<h1>Adicionar Contatos</h1>
+	<form action="learn?logica=AdicionaContatoServlet" method="POST">
+		Nome: <input type="text" name="nome"><br>
+		Email: <input type="email" name="email"><br>
 		<input type="submit" value="Gravar">
 	</form>
+	<p><a href="learn?logica=ListaContatos">Lista Contatos</a></p>
 </body>
 </html>

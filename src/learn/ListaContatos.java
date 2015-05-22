@@ -1,7 +1,7 @@
 package learn;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,24 +10,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import learn.dao.ContatoDao;
 import learn.logica.Logica;
+import learn.model.Contato;
 
-@WebServlet("/adicionaContato")
-public class AdicionaContatoServlet implements Logica {	
-
+/**
+ * Servlet implementation class ListaContatos
+ */
+@WebServlet("/listaContatos")
+public class ListaContatos implements Logica {	
+	
 	public String executa (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String nome = request.getParameter("nome");
-		String email = request.getParameter("email");
+		List<Contato> contatos = new ContatoDao().getList();
 		
+		request.setAttribute("contatos", contatos);
 		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/contato-adicionado.jsp");
-		rd.forward(request, response);
-		
-		return "contato-adicionado.jsp";
+		return "lista-contatos.jsp";
 	}
 
 }
