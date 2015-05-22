@@ -3,6 +3,7 @@ package learn;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,13 +22,17 @@ public class AdicionaContatoServlet extends HttpServlet {
 		
 		String nome = request.getParameter("nome");
 		
-		out.println("<html><body><h1>" + nome  +"</h1></body></html>");
+		//out.println("<html><body><h1>" + nome  +"</h1></body></html>");
+		RequestDispatcher rd = request.getRequestDispatcher("/contato-adicionado.jsp");
+		rd.forward(request, response);
 	}
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String email = request.getParameter("email");
+		String nome = request.getParameter("senha");
 		
 	}
 
