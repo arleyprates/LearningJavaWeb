@@ -1,7 +1,6 @@
 package learn.logica;
 
 import java.io.IOException;
-import java.sql.DriverManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
