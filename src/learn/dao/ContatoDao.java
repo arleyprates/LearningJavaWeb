@@ -63,25 +63,5 @@ public class ContatoDao {
 		}
 		
 	}
-	
-	public void exclui(Contato contato) {
-		
-		String sql = "DELETE FROM contato WHERE id = ?";
-		
-		try {
-			
-			PreparedStatement stmt = connection.prepareStatement(sql);
-			
-			stmt.setLong(1, contato.getId());
-			
-			stmt.execute();
-			
-			stmt.close();
-			
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("Exception DAO exclui...");
-		}
-	}
+
 }

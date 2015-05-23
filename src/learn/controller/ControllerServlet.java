@@ -1,4 +1,4 @@
-package learn.servlet;
+package learn.controller;
 
 import java.io.IOException;
 
@@ -28,7 +28,7 @@ public class ControllerServlet extends HttpServlet {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			throw new ServletException("A Logica retornou alguma excecao", e);
+			throw new ServletException("A Logica retornou alguma excecao ", e);
 		}
 	} 
 }

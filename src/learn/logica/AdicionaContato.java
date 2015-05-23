@@ -10,7 +10,7 @@ import learn.dao.ContatoDao;
 import learn.logica.Logica;
 import learn.model.Contato;
 
-public class AdicionaContatoServlet implements Logica {	
+public class AdicionaContato implements Logica {	
 
 	@Override
 	public String executa (HttpServletRequest request, HttpServletResponse response)
@@ -31,11 +31,11 @@ public class AdicionaContatoServlet implements Logica {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Erro ao adicionar "+ e);
+			System.out.println("Erro ao adicionar " + e);
 		}
 		
 		
-		return "contato-adicionado.jsp";
+		return "/WEB-INF/jsp/contato-adicionado.jsp";
 	}
 
 }

@@ -10,11 +10,13 @@
 <body>
 <table>
 	<tr>
+		<th>Numero</th>
   		<th>Nome</th>
   		<th>Email</th>
 	</tr>
 	<c:forEach var="contato" items="${contatos}">
-	<tr>    
+	<tr>
+		<td>${contato.id}</td>
     	<td>${contato.nome}</td> 
     	<td>${contato.email}</td>
 	</tr>
