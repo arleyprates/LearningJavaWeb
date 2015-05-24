@@ -1,8 +1,11 @@
 package learn.logica;
 
+import java.sql.Connection;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import learn.dao.ConnectionFactory;
 import learn.dao.ContatoDao;
 import learn.model.Contato;
 
@@ -19,7 +22,8 @@ public class RemoveContatoLogic implements Logica {
 			Contato contato = new Contato();
 			contato.setId(id);
 			
-			ContatoDao dao = new ContatoDao();
+			Connection connection = (Connection) req.getAttribute("connection");
+			ContatoDao dao = new ContatoDao(connection);
 			dao.exclui(contato);
 			
 			System.out.println("Excluidando contato... ");

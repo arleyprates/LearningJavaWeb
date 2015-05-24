@@ -1,5 +1,6 @@
 package learn.dao;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 import learn.model.Contato;
@@ -13,8 +14,8 @@ public class TesteConexao {
 		
 		contato.setNome("Arley");
 		contato.setEmail("arleyprates");
-		
-		ContatoDao dao = new ContatoDao();
+		Connection connection = new ConnectionFactory().getConnection();
+		ContatoDao dao = new ContatoDao(connection);
 		
 		dao.adiciona(contato);
 		

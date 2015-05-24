@@ -1,11 +1,13 @@
 package learn.logica;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import learn.dao.ConnectionFactory;
 import learn.dao.ContatoDao;
 import learn.logica.Logica;
 import learn.model.Contato;
@@ -25,9 +27,13 @@ public class AdicionaContatoServlet implements Logica {
 			
 			contato.setNome(nome);
 			contato.setEmail(email);
+						
+			Connection connection = (Connection) request.getAttribute("connection");
+			ContatoDao dao = new ContatoDao(connection);
 			
-			ContatoDao dao = new ContatoDao();
 			dao.adiciona(contato);
+			
+			connection.close();
 			
 		} catch (Exception e) {
 			// TODO: handle exception

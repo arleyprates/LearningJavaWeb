@@ -1,6 +1,7 @@
 package learn.filter;
 
 import java.io.IOException;
+import java.sql.Connection;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,6 +12,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import learn.dao.ConnectionFactory;
+
 @WebFilter("/*")
 public class FiltroTempoDeExecucao implements Filter {
 
@@ -18,7 +21,11 @@ public class FiltroTempoDeExecucao implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		Connection connection = new ConnectionFactory().getConnection();
+		
 		long tempoInicial = System.currentTimeMillis();
+		
+		request.setAttribute("connection", connection);
 		
 		chain.doFilter(request, response);
 		
